@@ -9,10 +9,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     # - uses: ./.github/actions/get-packages/
-    - run: pip3 install mako --user
-    - run: mkdir -p build
-    - run: python3 render.py >build/index.html
+
+    - uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - run: |
+      pip install mako
+      mkdir -p build
+      python render.py >build/index.html
+
     - uses: peaceiris/actions-gh-pages@v1.0.1
       env:
         PUBLISH_DIR: ./build
