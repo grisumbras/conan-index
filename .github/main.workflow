@@ -5,12 +5,12 @@ workflow "Publish" {
 
 action "publish" {
   needs = "run"
-  uses = "peaceiris/actions-gh-pages@v1.0.1"
+  uses = "peaceiris/actions-gh-pages@v1.1.0"
   env = {
-    PUBLISH_DIR  = "build"
+    PUBLISH_DIR  = "./build"
     PUBLISH_BRANCH = "gh-pages"
   }
-  secrets = ["ACTIONS_DEPLOY_KEY"]
+  secrets = ["GITHUB_TOKEN"]
 }
 
 action "run" {
