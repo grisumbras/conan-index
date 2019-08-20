@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     # - uses: ./.github/actions/get-packages/
-    - run pip3 install mako --user
+    - run: pip3 install mako --user
     - run: mkdir -p build
     - run: python3 render.py >build/index.html
     - uses: peaceiris/actions-gh-pages@v1.0.1
