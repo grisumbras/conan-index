@@ -6,11 +6,11 @@ jobs:
   publish:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      uses: ./run/
+      uses: ./.github/actions/build/
     - uses: peaceiris/actions-gh-pages@v1.1.0
       env:
         PUBLISH_DIR: ./build
