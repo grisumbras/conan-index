@@ -17,9 +17,10 @@ jobs:
         python-version: 3.7
 
     - run: |
-      pip install mako
-      mkdir -p build
-      python render.py >build/index.html
+        python -m pip install --upgrade pip
+        pip install mako
+        mkdir -p build
+        python render.py >build/index.html
 
     - uses: peaceiris/actions-gh-pages@v1.0.1
       env:
