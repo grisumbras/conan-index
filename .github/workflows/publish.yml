@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    # - uses: ./.github/actions/get-packages/
+    - uses: ./.github/actions/get-packages/
 
     - uses: actions/setup-python@v1
       with:
