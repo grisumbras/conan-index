@@ -1,0 +1,5 @@
+name: 'Get Packages'
+description: 'Gets the list of Conan packages'
+runs:
+  using: docker
+  image: Dockerfile

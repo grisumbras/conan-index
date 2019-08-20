@@ -9,8 +9,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build
-      uses: ./.github/actions/build/
+    # - uses: ./.github/actions/get-packages/
+    - run pip3 install mako --user
+    - run: mkdir -p build
+    - run: python3 render.py >build/index.html
     - uses: peaceiris/actions-gh-pages@v1.0.1
       env:
         PUBLISH_DIR: ./build

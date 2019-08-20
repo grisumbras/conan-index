@@ -1,5 +1,0 @@
-name: 'Build'
-description: 'Creates an index of Conan packages'
-runs:
-  using: docker
-  image: Dockerfile
