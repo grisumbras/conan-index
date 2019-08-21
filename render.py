@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 
-from mako.template import Template
+from mako.lookup import TemplateLookup
 from mako.runtime import Context
+from mako.template import Template
 from pathlib import Path
 import json
 import re
@@ -60,17 +61,17 @@ class PackageGroup(object):
 
     def load_info(self):
         package = self.packages[0]
-        subprocess.call(
-            (
-                "conan",
-                "inspect",
-                "-r", package.remote.name,
-                "-j", "/tmp/package.json",
-                package.reference(),
-            ),
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
+        # subprocess.call(
+        #     (
+        #         "conan",
+        #         "inspect",
+        #         "-r", package.remote.name,
+        #         "-j", "/tmp/package.json",
+        #         package.reference(),
+        #     ),
+        #     stdout=subprocess.DEVNULL,
+        #     stderr=subprocess.DEVNULL,
+        # )
         with open("/tmp/package.json", "r") as package_file:
             data = json.load(package_file)
             self.url = data["url"]
@@ -155,8 +156,8 @@ def main():
         with open(Path.home() / ".conan" / "remotes.json", "r") as remotes:
             data = get_data(remotes, packages)
     context = Context(sys.stdout, **data)
-    template = Template(filename="index.mako", output_encoding="utf-8")
-    template.render_context(context)
+    lookup = TemplateLookup(directories=["templates"], output_encoding="utf-8")
+    lookup.get_template("index.mako").render_context(context)
 
 
 if __name__ == "__main__":
