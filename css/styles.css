@@ -17,6 +17,12 @@ ul#package-list {
   padding-left: 0;
 }
 
+.package-block .package-number {
+  display: block;
+  float: right;
+  font-weight: bolder;
+}
+
 .package-block h3 { font-size: 1.2rem; }
 
 .package-block .package-description {

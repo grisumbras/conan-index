@@ -12,8 +12,9 @@
 <h1>Conan Package Index</h1>
 
 <ul id="package-list">
-  % for group in package_groups:
+  % for index, group in enumerate(package_groups):
     <li class="package-block m-note m-primary">
+    <span class="package-number">${index + 1}</span>
       <h3>${group.name}:${group.namespace}</h3>
       <p class="package-description">${group.description}</p>
       % if group.topics:
