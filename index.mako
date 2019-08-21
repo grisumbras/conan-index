@@ -5,7 +5,7 @@
   <body>
     <h1>Conan Package Index</h1>
     <ul>
-      % for group in data["package_groups"]:
+      % for group in package_groups:
         <li>
           <h3>${group.name}:${group.namespace}</h3>
           <p>${group.description}</p>
@@ -25,7 +25,9 @@
               <dt>Package homepage</dt><dd>${group.url}</dd>
             % endif
             <dt>License</dt><dd>${group.license or "proprietary"}</dd>
-            <dt>Author</dt><dd>${group.author or "-"}</dd>
+            % if group.author:
+              <dt>Author</dt><dd>${group.author}</dd>
+            % endif
           </dl>
           Packages:
           <ol>
@@ -41,7 +43,7 @@
     </ul>
     <h2>Remotes</h2>
     <ul>
-      % for remote in data["remotes"]:
+      % for remote in remotes:
         <li id="remote-${remote.name}">${remote.name} ${remote.url}</li>
       % endfor
     </ul>

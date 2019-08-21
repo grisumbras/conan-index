@@ -154,7 +154,7 @@ def main():
     with open("packages.json", "r") as packages:
         with open(Path.home() / ".conan" / "remotes.json", "r") as remotes:
             data = get_data(remotes, packages)
-    context = Context(sys.stdout, data=data)
+    context = Context(sys.stdout, **data)
     template = Template(filename="index.mako", output_encoding="utf-8")
     template.render_context(context)
 
