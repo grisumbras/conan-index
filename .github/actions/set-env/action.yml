@@ -1,5 +1,0 @@
-name: Set Environment
-description: Sets environment variables
-runs:
-  using: node12
-  main: main.js

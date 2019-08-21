@@ -16,7 +16,7 @@ jobs:
       with:
         python-version: 3.7
 
-    - uses: ./.github/actions/set-env
+    - run: "echo \"##[set-env FOOBAR=$FOOBAR]\""
       env:
         FOOBAR: barbaz
 
