@@ -1,0 +1,49 @@
+:root {
+  --font:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Helvetica Neue",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+ul#package-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.package-block .package-number {
+  display: block;
+  float: right;
+  font-weight: bolder;
+}
+
+.package-block h3 { font-size: 1.2rem; }
+
+.package-block .package-description {
+  font-size: 0.9rem;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.package-block .package-attributes { line-height: 1.3rem; }
+
+.package-block .package-attributes dt {
+  float: left;
+  font-weight: bolder;
+  padding-right: 0.7rem;
+}
+
+.package-block .package-attributes dt:after { content: ":"; }
+
+.package-block .package-attributes dd { display: block; }
+
+.package-block .package-attributes dd ol {
+  padding-left: 1rem;
+  clear: both;
+}
