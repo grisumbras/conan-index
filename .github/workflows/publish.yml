@@ -20,7 +20,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install mako
         mkdir -p build
+        echo '$HOME='$HOME
+        echo '$GITHUB_WORKSPACE='$GITHUB_WORKSPACE
         ls $HOME -la
+        echo ----
+        ls $GITHUB_WORKSPACE -la
         python render.py >build/index.html
 
     - uses: peaceiris/actions-gh-pages@v1.0.1
