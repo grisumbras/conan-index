@@ -60,13 +60,17 @@ class PackageGroup(object):
 
     def load_info(self):
         package = self.packages[0]
-        subprocess.call((
-            "conan",
-            "inspect",
-            "-r", package.remote.name,
-            "-j", "/tmp/package.json",
-            package.reference(),
-        ))
+        subprocess.call(
+            (
+                "conan",
+                "inspect",
+                "-r", package.remote.name,
+                "-j", "/tmp/package.json",
+                package.reference(),
+            ),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
         with open("/tmp/package.json", "r") as package_file:
             data = json.load(package_file)
             self.url = data["url"]
@@ -75,7 +79,6 @@ class PackageGroup(object):
             self.author = data["author"]
             self.description = data["description"]
             self.topics = data["topics"]
-
 
     def _struct(self):
         return (self.name, self.namespace)

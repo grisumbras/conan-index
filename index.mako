@@ -7,7 +7,7 @@
     <ul>
       % for group in data["package_groups"]:
         <li>
-          <h3>${group.name}@${group.namespace}</h3>
+          <h3>${group.name}:${group.namespace}</h3>
           <p>${group.description}</p>
           % if group.topics:
             Topics:
@@ -32,7 +32,7 @@
             % for package in group.packages:
               <li>
                 ${package.reference()}
-                (on <a href="#remote-${package.remote.name}">${package.remote.name}</a>)
+                (from <a href="#remote-${package.remote.name}">${package.remote.name}</a>)
               </li>
             % endfor
           </ol>
