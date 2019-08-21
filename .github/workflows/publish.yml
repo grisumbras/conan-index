@@ -22,7 +22,6 @@ jobs:
         conan search '*' -r all -j packages.json
         mkdir -p build
         python render.py >build/index.html
-        mv css/m.css/css/*.css build/
         mv css/*.css build/
 
     - uses: peaceiris/actions-gh-pages@v1.0.1
