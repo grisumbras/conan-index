@@ -19,7 +19,7 @@ jobs:
         pip install mako conan
         conan config set general.request_timeout=600
         conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-        # conan search '*' -r all -j packages.json
+        conan search '*' -r all -j packages.json
         mkdir -p build
         python render.py >build/index.html
         mv css/m.css/css/*.css build/
